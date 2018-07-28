@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <button onclick="randomizeChallenge()" id="randomizeValues" class="gr_col1 gr_row4 genButton">RANDOM VALUES</button>
+    <button onclick="randomizeChallenge();" id="randomizeValues" class="gr_col1 gr_row4 genButton">RANDOM VALUES</button>
     <div class="gr_col1 gr_row5">
       <label for="randomTowersOnly" style="word-wrap: break-word">
         Randomize only towers: <input type="checkbox" id="randomTowersOnly" style="vertical-align: middle" checked>
@@ -93,19 +93,19 @@
 
     <div class="valueInput gr_col3 gr_row2">
       <div class="inLabel">
-        <label for="includeSubmodes" id="includeSubmodesLabel">TBA: Include submodes:</label>
+        <label for="includeSubmodes" id="includeSubmodesLabel">Include submodes:</label>
       </div>
       <div class="inInput">
-        <select id="includeSubmodes" disabled="disabled">
-          <option value="none" selected>None</option>
-          <option value="anyWStandard">Any -- With Standard</option>
-          <option value="anyWOStandard">Any -- Without standard</option>
+        <select id="includeSubmodes">
+          <option value="-1" selected>None</option>
+          <option value="0">Any -- With Standard</option>
+          <option value="1">Any -- Without standard</option>
         </select>
       </div>
     </div>
 
     <!--suppress JSIgnoredPromiseFromCall -->
-    <button onclick="displayCurrentChallenge(10)" id="generateButton" class="gr_col3 gr_row4 genButton">GENERATE</button>
+    <button onclick="displayCurrentChallenge(1); generateSubmodes();" id="generateButton" class="gr_col3 gr_row4 genButton">GENERATE</button>
   </div>
 
   <div class="challengeDisplay gr_row3 gr_col3">

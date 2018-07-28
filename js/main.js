@@ -7,10 +7,12 @@ let hero; // int containing id of the hero
 let map; // int containing id of the map
 let mapType; // string containing the name of the map type ie.: beginner
 let difficulty; // string with the name of diff
+let subMode; // string with the name of the submode
 
-function sleep(ms) {
+// Causes issues with older browsers
+/*function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-}
+}*/
 
 
 function generateChallenge() {
@@ -21,13 +23,20 @@ function generateChallenge() {
   generatePrimary();
   generateMap();
   generateDifficulty();
+  if (document.getElementById("includeSubmodes").value !== "-1") { generateSubmodes() }
 }
 
 async function displayCurrentChallenge(x) {
   for (let i = 0; i < x; i++) {
     generateChallenge();
 
-    document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>" + " " + mapType + " - " + difficulty + "<br><br>";
+    document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>";
+
+    if (document.getElementById("includeSubmodes").value !== "-1"){
+      document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + " - " + subMode.toLowerCase() + "<br><br>";
+    } else {
+      document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + "<br><br>";
+    }
 
     if (document.getElementById("isHeroDesired").value === "1") {
       document.getElementById("challenge").innerHTML += heroes[hero].name + "<br><br>";
@@ -48,7 +57,7 @@ async function displayCurrentChallenge(x) {
     supportTowers.forEach(function (value) {
       document.getElementById("challenge").innerHTML += towers.support[value].name + "<br>";
     });
-    await sleep(40);
+    //await sleep(40);
   }
 }
 
@@ -70,6 +79,7 @@ function randomizeParameters() {
   document.getElementById("isHeroDesired").value = "" + Math.floor(Math.random() * 2);
   document.getElementById("mapType").value = "" + (Math.floor(Math.random() * 5) - 1);
   document.getElementById("desiredDifficulty").value = "" + (Math.floor(Math.random() * 4) - 1);
+  document.getElementById("includeSubmodes").value = "" + (Math.floor(Math.random() * 3) - 1);
 }
 
 function randomizeChallenge() {
@@ -182,5 +192,39 @@ function fixInputFields() {
   }
   if (document.getElementById("supportDesiredCount").value > towers.support.length) {
     document.getElementById("supportDesiredCount").value = towers.support.length
+  }
+}
+
+function generateSubmodes(){
+  let genType = parseInt(document.getElementById("includeSubmodes").value);
+
+  switch (difficulty) {
+    case "easy":
+      if (genType === 0) {
+        subMode = difficulties[0].submodes[Math.floor(Math.random() * difficulties[0].submodes.length)].name;
+        console.log(subMode);
+      } else {
+        subMode = difficulties[0].submodes[Math.floor((Math.random() * (difficulties[0].submodes.length - 1)) + 1)].name;
+        console.log(subMode);
+      }
+      break;
+    case "normal":
+      if (genType === 0) {
+        subMode = difficulties[1].submodes[Math.floor(Math.random() * difficulties[1].submodes.length)].name;
+        console.log(subMode);
+      } else {
+        subMode = difficulties[1].submodes[Math.floor((Math.random() * (difficulties[1].submodes.length - 1)) + 1)].name;
+        console.log(subMode);
+      }
+      break;
+    case "hard":
+      if (genType === 0) {
+        subMode = difficulties[2].submodes[Math.floor(Math.random() * difficulties[2].submodes.length)].name;
+        console.log(subMode);
+      } else {
+        subMode = difficulties[2].submodes[Math.floor((Math.random() * (difficulties[2].submodes.length - 1)) + 1)].name;
+        console.log(subMode);
+      }
+      break;
   }
 }

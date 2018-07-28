@@ -251,14 +251,76 @@ var maps = {
 var difficulties = [
   {
     "id": 0,
-    "name": "easy"
+    "name": "easy",
+    "submodes": [
+      {
+        "id": 0,
+        "name": "Standard"
+      },
+      {
+        "id": 1,
+        "name": "Primary Only"
+      },
+      {
+        "id": 2,
+        "name": "Deflation"
+      }
+    ]
   },
   {
     "id": 1,
-    "name": "normal"
+    "name": "normal",
+    "submodes": [
+      {
+        "id": 0,
+        "name": "Standard"
+      },
+      {
+        "id": 1,
+        "name": "Military Only"
+      },
+      {
+        "id": 2,
+        "name": "Apocalypse"
+      },
+      {
+        "id": 3,
+        "name": "Reverse"
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "hard"
+    "name": "hard",
+    "submodes": [
+      {
+        "id": 0,
+        "name": "Standard"
+      },
+      {
+        "id": 1,
+        "name": "Magic Only"
+      },
+      {
+        "id": 2,
+        "name": "Double HP MOABs"
+      },
+      {
+        "id": 3,
+        "name": "Half Cash"
+      },
+      {
+        "id": 4,
+        "name": "Alternate Bloons Rounds"
+      },
+      {
+        "id": 5,
+        "name": "Impoppable"
+      },
+      {
+        "id": 6,
+        "name": "Chimps"
+      }
+    ]
   }
 ];
