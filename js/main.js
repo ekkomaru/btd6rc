@@ -59,14 +59,26 @@ function totalTowers() {
     parseInt(document.getElementById("supportDesiredCount").value);
 }
 
-function randomizeChallenge() {
-  document.getElementById("isHeroDesired").value = "" + Math.floor(Math.random() * 2);
-  document.getElementById("mapType").value = "" + (Math.floor(Math.random() * 5) - 1);
+function randomizeTowers(){
   document.getElementById("primaryDesiredCount").value = Math.floor(Math.random() * (towers.primary.length - 2));
   document.getElementById("militaryDesiredCount").value = Math.floor(Math.random() * (towers.military.length - 1));
   document.getElementById("magicDesiredCount").value = Math.floor(Math.random() * (towers.magic.length - 1));
   document.getElementById("supportDesiredCount").value = Math.floor(Math.random() * (towers.support.length - 1));
+}
+
+function randomizeParameters() {
+  document.getElementById("isHeroDesired").value = "" + Math.floor(Math.random() * 2);
+  document.getElementById("mapType").value = "" + (Math.floor(Math.random() * 5) - 1);
   document.getElementById("desiredDifficulty").value = "" + (Math.floor(Math.random() * 4) - 1);
+}
+
+function randomizeChallenge() {
+  if (document.getElementById("randomTowersOnly").checked) {
+    randomizeTowers();
+  } else{
+    randomizeTowers();
+    randomizeParameters();
+  }
 
   if (totalTowers() < 2 || totalTowers() > 7) {
     randomizeChallenge();
