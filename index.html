@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Bloons TD6 Random Challenge Generator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/json/jsonVars.js"></script>
+</head>
+
+<body>
+<div class="pageCenter">
+  <h1 class="gr_row2 gr_col2">Bloons TD6 Random Challenge</h1>
+
+  <div class="challengeGenerator gr_col2 gr_row3" style="">
+
+    <!--First column of the challenge generator-->
+    <div class="valueInput gr_col1 gr_row1">
+      <div class="inLabel">
+        <label for="isHeroDesired" id="isHeroDesiredLabel">Include hero:</label>
+      </div>
+      <div class="inInput">
+        <select id="isHeroDesired">
+          <option value="1" selected>Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="valueInput gr_col1 gr_row2">
+      <div class="inLabel">
+        <label for="mapType" id="mapTypeLabel">Map type:</label>
+      </div>
+      <div class="inInput">
+        <select id="mapType">
+          <option value="-1" selected>Any</option>
+          <option value="0">Beginner</option>
+          <option value="1">Intermediate</option>
+          <option value="2">Advanced</option>
+          <option value="3">Expert</option>
+        </select>
+      </div>
+    </div>
+
+    <button onclick="randomizeChallenge()" id="randomizeValues" class="gr_col1 gr_row4 genButton">RANDOM VALUES</button>
+
+    <!--Second column of the challenge generator-->
+    <div class="valueInput gr_col2 gr_row1">
+      <div class="inLabel"><label for="primaryDesiredCount" id="primaryDesiredCountLabel">Primary count:</label></div>
+      <div class="inInput"><input type="number" id="primaryDesiredCount" onchange="fixInputFields()" min="0" value="1"/></div>
+    </div>
+    <div class="valueInput gr_col2 gr_row2">
+      <div class="inLabel"><label for="militaryDesiredCount" id="militaryDesiredCountLabel">Military count:</label></div>
+      <div class="inInput"><input type="number" id="militaryDesiredCount" onchange="fixInputFields()" min="0" value="1"/></div>
+    </div>
+    <div class="valueInput gr_col2 gr_row3">
+      <div class="inLabel"><label for="magicDesiredCount" id="magicDesiredCountLabel">Magic count:</label></div>
+      <div class="inInput"><input type="number" id="magicDesiredCount" onchange="fixInputFields()" min="0" value="1"/></div>
+    </div>
+    <div class="valueInput gr_col2 gr_row4">
+      <div class="inLabel"><label for="supportDesiredCount" id="supportDesiredCountLabel">Support count:</label></div>
+      <div class="inInput"><input type="number" id="supportDesiredCount" onchange="fixInputFields()" min="0" value="1"/></div>
+    </div>
+
+    <!--Third column of the challenge generator-->
+    <div class="valueInput gr_col3 gr_row1">
+      <div class="inLabel"><label for="desiredDifficulty">Difficulty:</label></div>
+      <div class="inInput">
+        <select id="desiredDifficulty">
+          <option value="-1" selected>Any</option>
+          <option value="0">Easy</option>
+          <option value="1">Normal</option>
+          <option value="2">Hard</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="valueInput gr_col3 gr_row2">
+      <div class="inLabel">
+        <label for="includeSubmodes" id="includeSubmodesLabel">TBA: Include submodes:</label>
+      </div>
+      <div class="inInput">
+        <select id="includeSubmodes" disabled="disabled">
+          <option value="none" selected>None</option>
+          <option value="anyWStandard">Any -- With Standard</option>
+          <option value="anyWOStandard">Any -- Without standard</option>
+        </select>
+      </div>
+    </div>
+
+    <!--suppress JSIgnoredPromiseFromCall -->
+    <button onclick="displayCurrentChallenge(10)" id="generateButton" class="gr_col3 gr_row4 genButton">GENERATE</button>
+  </div>
+
+  <div class="challengeDisplay gr_row3 gr_col3">
+    <div id="challenge" style="width: available">
+    </div>
+  </div>
+</div>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

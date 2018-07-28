@@ -1,0 +1,174 @@
+// Stored in variables for future sharing option.
+let primaryTowers = []; // int array containing tower ids
+let militaryTowers = []; // int array containing tower ids
+let magicTowers = []; // int array containing tower ids
+let supportTowers = []; // int array containing tower ids
+let hero; // int containing id of the hero
+let map; // int containing id of the map
+let mapType; // string containing the name of the map type ie.: beginner
+let difficulty; // string with the name of diff
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+function generateChallenge() {
+  generateHero();
+  generateSupport();
+  generateMagic();
+  generateMilitary();
+  generatePrimary();
+  generateMap();
+  generateDifficulty();
+}
+
+async function displayCurrentChallenge(x) {
+  for (let i = 0; i < x; i++) {
+    generateChallenge();
+
+    document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>" + " " + mapType + " - " + difficulty + "<br><br>";
+
+    if (document.getElementById("isHeroDesired").value === "1") {
+      document.getElementById("challenge").innerHTML += heroes[hero].name + "<br><br>";
+    }
+
+    primaryTowers.forEach(function (value) {
+      document.getElementById("challenge").innerHTML += towers.primary[value].name + "<br>";
+    });
+
+    militaryTowers.forEach(function (value) {
+      document.getElementById("challenge").innerHTML += towers.military[value].name + "<br>";
+    });
+
+    magicTowers.forEach(function (value) {
+      document.getElementById("challenge").innerHTML += towers.magic[value].name + "<br>";
+    });
+
+    supportTowers.forEach(function (value) {
+      document.getElementById("challenge").innerHTML += towers.support[value].name + "<br>";
+    });
+    await sleep(40);
+  }
+}
+
+function totalTowers() {
+  return parseInt(document.getElementById("primaryDesiredCount").value) +
+    parseInt(document.getElementById("militaryDesiredCount").value) +
+    parseInt(document.getElementById("magicDesiredCount").value) +
+    parseInt(document.getElementById("supportDesiredCount").value);
+}
+
+function randomizeChallenge() {
+  document.getElementById("isHeroDesired").value = "" + Math.floor(Math.random() * 2);
+  document.getElementById("mapType").value = "" + (Math.floor(Math.random() * 5) - 1);
+  document.getElementById("primaryDesiredCount").value = Math.floor(Math.random() * (towers.primary.length - 2));
+  document.getElementById("militaryDesiredCount").value = Math.floor(Math.random() * (towers.military.length - 1));
+  document.getElementById("magicDesiredCount").value = Math.floor(Math.random() * (towers.magic.length - 1));
+  document.getElementById("supportDesiredCount").value = Math.floor(Math.random() * (towers.support.length - 1));
+  document.getElementById("desiredDifficulty").value = "" + (Math.floor(Math.random() * 4) - 1);
+
+  if (totalTowers() < 2 || totalTowers() > 7) {
+    randomizeChallenge();
+  }
+}
+
+function generateHero() {
+  hero = Math.floor(Math.random() * heroes.length);
+}
+
+function generateDifficulty() {
+  if (document.getElementById("desiredDifficulty").value === "-1") {
+    difficulty = difficulties[Math.floor(Math.random() * difficulties.length)].name;
+  } else {
+    difficulty = difficulties[parseInt(document.getElementById("desiredDifficulty").value)].name;
+  }
+}
+
+function generateMap() {
+  let typeToGen;
+  let rnd;
+  if (document.getElementById("mapType").value === "-1") {
+    typeToGen = "" + Math.floor(Math.random() * 4);
+  } else {
+    typeToGen = document.getElementById("mapType").value;
+  }
+  switch (typeToGen) {
+    case "0":
+      rnd = Math.floor(Math.random() * maps.beginner.length);
+      map = maps.beginner[rnd].name;
+      mapType = "beginner";
+      break;
+    case "1":
+      rnd = Math.floor(Math.random() * maps.intermediate.length);
+      map = maps.intermediate[rnd].name;
+      mapType = "intermediate";
+      break;
+    case "2":
+      rnd = Math.floor(Math.random() * maps.advanced.length);
+      map = maps.advanced[rnd].name;
+      mapType = "advanced";
+      break;
+    case "3":
+      rnd = Math.floor(Math.random() * maps.expert.length);
+      map = maps.expert[rnd].name;
+      mapType = "expert";
+      break;
+  }
+}
+
+
+function generatePrimary() {
+  primaryTowers = [];
+  for (let x = 0; x < document.getElementById("primaryDesiredCount").value; x = primaryTowers.length) {
+    let rnd = Math.floor(Math.random() * towers.primary.length);
+    if (primaryTowers.indexOf(rnd) === -1) {
+      primaryTowers.push(rnd);
+    }
+  }
+}
+
+function generateMilitary() {
+  militaryTowers = [];
+  for (let x = 0; x < document.getElementById("militaryDesiredCount").value; x = militaryTowers.length) {
+    let rnd = Math.floor(Math.random() * towers.military.length);
+    if (militaryTowers.indexOf(rnd) === -1) {
+      militaryTowers.push(rnd);
+    }
+  }
+}
+
+function generateMagic() {
+  magicTowers = [];
+  for (let x = 0; x < document.getElementById("magicDesiredCount").value; x = magicTowers.length) {
+    let rnd = Math.floor(Math.random() * towers.magic.length);
+    if (magicTowers.indexOf(rnd) === -1) {
+      magicTowers.push(rnd);
+    }
+  }
+}
+
+function generateSupport() {
+  supportTowers = [];
+  for (let x = 0; x < document.getElementById("supportDesiredCount").value; x = supportTowers.length) {
+    let rnd = Math.floor(Math.random() * towers.support.length);
+    if (supportTowers.indexOf(rnd) === -1) {
+      supportTowers.push(rnd);
+    }
+  }
+}
+
+function fixInputFields() {
+  if (document.getElementById("primaryDesiredCount").value > towers.primary.length) {
+    document.getElementById("primaryDesiredCount").value = towers.primary.length
+  }
+  if (document.getElementById("militaryDesiredCount").value > towers.military.length) {
+    document.getElementById("militaryDesiredCount").value = towers.military.length
+  }
+  if (document.getElementById("magicDesiredCount").value > towers.magic.length) {
+    document.getElementById("magicDesiredCount").value = towers.magic.length
+  }
+  if (document.getElementById("supportDesiredCount").value > towers.support.length) {
+    document.getElementById("supportDesiredCount").value = towers.support.length
+  }
+}
