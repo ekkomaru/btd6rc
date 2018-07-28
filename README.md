@@ -8,3 +8,7 @@
 - Ability to choose the difficulty
 - Ability to include sub-modes (such as CHIMPS)
 - Totally random challenge, all the criteria is randomly generated
+
+## Issues & Suggestion ##
+Please submit any suggestions you may have and issues you may find here on GitHub.  
+Before submiting an issue or suggestion have a quick look if it doesn't already exist.
