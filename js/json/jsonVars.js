@@ -17,7 +17,7 @@ var towers = {
     },
     {
       "id": 3,
-      "name": "Track Shooter",
+      "name": "Tack Shooter",
       "icon": "img/monkeys/track.png"
     },
     {
