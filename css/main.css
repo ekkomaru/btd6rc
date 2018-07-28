@@ -137,7 +137,8 @@ textarea {
   background: #ffffff;
   border: 1px solid rgba(160, 160, 255, 0.75);
 }
-#challenge{
+
+#challenge {
   grid-column: 1 / span 3;
 }
 
@@ -151,7 +152,7 @@ input, select {
   text-align: center;
 }
 
-.pageCenter{
+.pageCenter {
   max-width: 800px;
   margin: auto;
 }

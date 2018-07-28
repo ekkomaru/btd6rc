@@ -9,10 +9,9 @@ let mapType; // string containing the name of the map type ie.: beginner
 let difficulty; // string with the name of diff
 let subMode; // string with the name of the submode
 
-// Causes issues with older browsers
-/*function sleep(ms) {
+function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-}*/
+}
 
 
 function generateChallenge() {
@@ -23,42 +22,43 @@ function generateChallenge() {
   generatePrimary();
   generateMap();
   generateDifficulty();
-  if (document.getElementById("includeSubmodes").value !== "-1") { generateSubmodes() }
+  if (document.getElementById("includeSubmodes").value !== "-1") {
+    generateSubmodes()
+  }
 }
 
-async function displayCurrentChallenge(x) {
-  for (let i = 0; i < x; i++) {
-    generateChallenge();
+function displayCurrentChallenge(x) {
+  if (x > 0) setTimeout(displayCurrentChallenge, 40, x - 1);
 
-    document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>";
+  generateChallenge();
 
-    if (document.getElementById("includeSubmodes").value !== "-1"){
-      document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + " - " + subMode.toLowerCase() + "<br><br>";
-    } else {
-      document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + "<br><br>";
-    }
+  document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>";
 
-    if (document.getElementById("isHeroDesired").value === "1") {
-      document.getElementById("challenge").innerHTML += heroes[hero].name + "<br><br>";
-    }
-
-    primaryTowers.forEach(function (value) {
-      document.getElementById("challenge").innerHTML += towers.primary[value].name + "<br>";
-    });
-
-    militaryTowers.forEach(function (value) {
-      document.getElementById("challenge").innerHTML += towers.military[value].name + "<br>";
-    });
-
-    magicTowers.forEach(function (value) {
-      document.getElementById("challenge").innerHTML += towers.magic[value].name + "<br>";
-    });
-
-    supportTowers.forEach(function (value) {
-      document.getElementById("challenge").innerHTML += towers.support[value].name + "<br>";
-    });
-    //await sleep(40);
+  if (document.getElementById("includeSubmodes").value !== "-1") {
+    document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + " - " + subMode.toLowerCase() + "<br><br>";
+  } else {
+    document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + "<br><br>";
   }
+
+  if (document.getElementById("isHeroDesired").value === "1") {
+    document.getElementById("challenge").innerHTML += heroes[hero].name + "<br><br>";
+  }
+
+  primaryTowers.forEach(function (value) {
+    document.getElementById("challenge").innerHTML += towers.primary[value].name + "<br>";
+  });
+
+  militaryTowers.forEach(function (value) {
+    document.getElementById("challenge").innerHTML += towers.military[value].name + "<br>";
+  });
+
+  magicTowers.forEach(function (value) {
+    document.getElementById("challenge").innerHTML += towers.magic[value].name + "<br>";
+  });
+
+  supportTowers.forEach(function (value) {
+    document.getElementById("challenge").innerHTML += towers.support[value].name + "<br>";
+  });
 }
 
 function totalTowers() {
@@ -68,7 +68,7 @@ function totalTowers() {
     parseInt(document.getElementById("supportDesiredCount").value);
 }
 
-function randomizeTowers(){
+function randomizeTowers() {
   document.getElementById("primaryDesiredCount").value = Math.floor(Math.random() * (towers.primary.length - 2));
   document.getElementById("militaryDesiredCount").value = Math.floor(Math.random() * (towers.military.length - 1));
   document.getElementById("magicDesiredCount").value = Math.floor(Math.random() * (towers.magic.length - 1));
@@ -85,7 +85,7 @@ function randomizeParameters() {
 function randomizeChallenge() {
   if (document.getElementById("randomTowersOnly").checked) {
     randomizeTowers();
-  } else{
+  } else {
     randomizeTowers();
     randomizeParameters();
   }
@@ -195,7 +195,7 @@ function fixInputFields() {
   }
 }
 
-function generateSubmodes(){
+function generateSubmodes() {
   let genType = parseInt(document.getElementById("includeSubmodes").value);
 
   switch (difficulty) {
