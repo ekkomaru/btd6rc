@@ -7,12 +7,7 @@ let hero; // int containing id of the hero
 let map; // int containing id of the map
 let mapType; // string containing the name of the map type ie.: beginner
 let difficulty; // string with the name of diff
-let subMode; // string with the name of the submode
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
+let subMode = ""; // string with the name of the submode
 
 function generateChallenge() {
   generateHero();
@@ -23,7 +18,9 @@ function generateChallenge() {
   generateMap();
   generateDifficulty();
   if (document.getElementById("includeSubmodes").value !== "-1") {
-    generateSubmodes()
+    generateSubmodes();
+  } else {
+    subMode = "";
   }
 }
 
@@ -44,6 +41,35 @@ function displayCurrentChallenge(x) {
     document.getElementById("challenge").innerHTML += heroes[hero].name + "<br><br>";
   }
 
+  if (subMode.includes("Only") === true) {
+    displayOnlySubmode(difficulty);
+  } else {
+    displayTowers();
+  }
+
+}
+
+function displayOnlySubmode(diff) {
+  switch (diff) {
+    case "easy":
+      towers.primary.forEach(function (value, index) {
+        document.getElementById("challenge").innerHTML += towers.primary[index].name + "<br>";
+      });
+      break;
+    case "normal":
+      towers.military.forEach(function (value, index) {
+        document.getElementById("challenge").innerHTML += towers.military[index].name + "<br>";
+      });
+      break;
+    case "hard":
+      towers.magic.forEach(function (value, index) {
+        document.getElementById("challenge").innerHTML += towers.magic[index].name + "<br>";
+      });
+      break;
+  }
+}
+
+function displayTowers() {
   primaryTowers.forEach(function (value) {
     document.getElementById("challenge").innerHTML += towers.primary[value].name + "<br>";
   });
@@ -197,33 +223,26 @@ function fixInputFields() {
 
 function generateSubmodes() {
   let genType = parseInt(document.getElementById("includeSubmodes").value);
-
   switch (difficulty) {
     case "easy":
       if (genType === 0) {
         subMode = difficulties[0].submodes[Math.floor(Math.random() * difficulties[0].submodes.length)].name;
-        console.log(subMode);
       } else {
         subMode = difficulties[0].submodes[Math.floor((Math.random() * (difficulties[0].submodes.length - 1)) + 1)].name;
-        console.log(subMode);
       }
       break;
     case "normal":
       if (genType === 0) {
         subMode = difficulties[1].submodes[Math.floor(Math.random() * difficulties[1].submodes.length)].name;
-        console.log(subMode);
       } else {
         subMode = difficulties[1].submodes[Math.floor((Math.random() * (difficulties[1].submodes.length - 1)) + 1)].name;
-        console.log(subMode);
       }
       break;
     case "hard":
       if (genType === 0) {
         subMode = difficulties[2].submodes[Math.floor(Math.random() * difficulties[2].submodes.length)].name;
-        console.log(subMode);
       } else {
         subMode = difficulties[2].submodes[Math.floor((Math.random() * (difficulties[2].submodes.length - 1)) + 1)].name;
-        console.log(subMode);
       }
       break;
   }
