@@ -29,12 +29,12 @@ function displayCurrentChallenge(x) {
 
   generateChallenge();
 
-  document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>";
+  document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong>" + " (" + mapType + ")" + "</div>";
 
   if (document.getElementById("includeSubmodes").value !== "-1") {
-    document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + " - " + subMode.toLowerCase() + "<br><br>";
+    document.getElementById("challenge").innerHTML += difficulty + " - " + subMode.toLowerCase() + "<br><br>";
   } else {
-    document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + "<br><br>";
+    document.getElementById("challenge").innerHTML += difficulty + "<br><br>";
   }
 
   if (document.getElementById("isHeroDesired").value === "1") {
@@ -247,6 +247,8 @@ function generateSubmodes() {
       break;
   }
 }
+
+//TODO: CHIMPS selectable
 
 function openSettings(open) {
   if (open === true){
