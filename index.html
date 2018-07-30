@@ -12,6 +12,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/jquery-3.3.1.js"></script>
@@ -21,9 +22,15 @@
 <body>
 <div style="position: absolute; left: 0; top: 0;"><a href="https://github.com/unforgivenjake/btd6rc">Visit this project on GitHub</a></div>
 <div class="pageCenter">
-  <h1 class="gr_row2 gr_col2">Bloons TD6 Random Challenge</h1>
 
+  <div class="generationSettings" id="genSettings">
+    <i class="material-icons" style="position: absolute; top: 10px; right: 10px; opacity: 0.5" onclick="openSettings(false)">clear</i>
+  </div>
+  <h1 class="gr_row2 gr_col2">Bloons TD6 Random Challenge
+    <i class="material-icons" style="opacity: 0.5; margin: auto;" onclick="openSettings(true)">settings</i>
+  </h1>
   <div class="challengeGenerator gr_col2 gr_row3" style="">
+
 
     <!--First column of the challenge generator-->
     <div class="valueInput gr_col1 gr_row1">

@@ -247,3 +247,11 @@ function generateSubmodes() {
       break;
   }
 }
+
+function openSettings(open) {
+  if (open === true){
+    document.getElementById("genSettings").style.top = "21px";
+  } else {
+    document.getElementById("genSettings").style.top = "-325px";
+  }
+}

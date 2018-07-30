@@ -138,6 +138,19 @@ textarea {
   border: 1px solid rgba(160, 160, 255, 0.75);
 }
 
+.generationSettings{
+  border: 1px solid rgba(160, 160, 255, 0.75);
+  background: #ffffff;
+  position: absolute;
+  top: -325px;
+  z-index: 2;
+  width: 800px;
+  height: 320px;
+  margin-top: -22px;
+  -webkit-transition: 1s; /* Safari */
+  transition: 1s;
+}
+
 #challenge {
   grid-column: 1 / span 3;
 }
