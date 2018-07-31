@@ -138,8 +138,26 @@ textarea {
   border: 1px solid rgba(160, 160, 255, 0.75);
 }
 
+.generationSettings {
+  border: 1px solid rgba(160, 160, 255, 0.75);
+  background: #ffffff;
+  position: absolute;
+  top: -325px;
+  z-index: 2;
+  width: 800px;
+  height: 320px;
+  margin-top: -22px;
+  -webkit-transition: 1s; /* Safari */
+  transition: 1s;
+  display: grid;
+  grid-column-gap: 25px;
+  grid-template-columns: 50px 200px 200px 200px;
+  grid-template-rows: 10px 24px auto;
+}
+
 #challenge {
   grid-column: 1 / span 3;
+  width: available;
 }
 
 input, select {
@@ -147,9 +165,17 @@ input, select {
   border: 1px solid rgba(160, 160, 255, 0.75);
 }
 
+.labeledCheckbox{
+  vertical-align: middle;
+}
+
 * {
   font-family: 'Roboto', 'sans-serif';
   text-align: center;
+}
+
+.settingsList{
+  text-align: start;
 }
 
 .pageCenter {

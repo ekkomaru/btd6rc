@@ -12,6 +12,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/jquery-3.3.1.js"></script>
@@ -21,9 +22,34 @@
 <body>
 <div style="position: absolute; left: 0; top: 0;"><a href="https://github.com/unforgivenjake/btd6rc">Visit this project on GitHub</a></div>
 <div class="pageCenter">
-  <h1 class="gr_row2 gr_col2">Bloons TD6 Random Challenge</h1>
 
+  <!-- Grid column 1 here is used as margin, so all column definitions should be moved by 1 -->
+  <!-- ie.: 'grid-column: 2' would have the desired effect of 'grid-column: 1' -->
+  <!-- I know it's confusing, but it's my first wrestle with CSS an HTML -->
+  <div class="generationSettings" id="genSettings">
+    <i class="material-icons" style="position: absolute; top: 10px; right: 10px; opacity: 0.5" onclick="openSettings(false)">clear</i>
+    <div class="gr_row2 gr_col3">Settings [BETA!]</div>
+    <div class="gr_col2 gr_row3 settingsList">
+      <label for="incChimpsMode" style="word-wrap: break-word">
+        Include CHIMPS: <input class="labeledCheckbox" type="checkbox" id="incChimpsMode" checked>
+      </label>
+      <br>
+      <label for="incStrikerJones" style="word-wrap: break-word">
+        Include Striker Jones: <input class="labeledCheckbox" type="checkbox" id="incStrikerJones" checked>
+      </label>
+    </div>
+    <div class="gr_col3 gr_row3 settingsList">
+      <div class="valueInput gr_col2 gr_row1">
+        <div class="inLabel"><label for="totalTowersToGen" id="totalTowersToGenLabel" style="opacity: 0.5;">Amount of towers to gen:</label></div>
+        <div class="inInput"><input type="number" id="totalTowersToGen" min="0" value="1" disabled/></div>
+      </div>
+    </div>
+  </div>
+  <h1 class="gr_row2 gr_col2">Bloons TD6 Random Challenge
+    <i class="material-icons" style="opacity: 0.5; margin: auto;" onclick="openSettings(true)">settings</i>
+  </h1>
   <div class="challengeGenerator gr_col2 gr_row3" style="">
+
 
     <!--First column of the challenge generator-->
     <div class="valueInput gr_col1 gr_row1">
@@ -37,7 +63,6 @@
         </select>
       </div>
     </div>
-
     <div class="valueInput gr_col1 gr_row2">
       <div class="inLabel">
         <label for="mapType" id="mapTypeLabel">Map type:</label>
@@ -52,8 +77,9 @@
         </select>
       </div>
     </div>
-
-    <button onclick="randomizeChallenge();" id="randomizeValues" class="gr_col1 gr_row4 genButton">RANDOM VALUES</button>
+    <button onclick="randomizeChallenge();" id="randomizeValues" class="gr_col1 gr_row4 genButton">
+      RANDOM VALUES
+    </button>
     <div class="gr_col1 gr_row5">
       <label for="randomTowersOnly" style="word-wrap: break-word">
         Randomize only towers: <input type="checkbox" id="randomTowersOnly" style="vertical-align: middle" checked>
@@ -90,7 +116,6 @@
         </select>
       </div>
     </div>
-
     <div class="valueInput gr_col3 gr_row2">
       <div class="inLabel">
         <label for="includeSubmodes" id="includeSubmodesLabel">Include submodes:</label>
@@ -103,13 +128,13 @@
         </select>
       </div>
     </div>
-
-    <!--suppress JSIgnoredPromiseFromCall -->
-    <button onclick="displayCurrentChallenge(10)" id="generateButton" class="gr_col3 gr_row4 genButton">GENERATE</button>
+    <button onclick="displayCurrentChallenge(10)" id="generateButton" class="gr_col3 gr_row4 genButton">
+      GENERATE
+    </button>
   </div>
 
   <div class="challengeDisplay gr_row3 gr_col3">
-    <div id="challenge" style="width: available">
+    <div id="challenge">
     </div>
   </div>
 </div>

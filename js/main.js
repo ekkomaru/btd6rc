@@ -29,12 +29,12 @@ function displayCurrentChallenge(x) {
 
   generateChallenge();
 
-  document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong></div>";
+  document.getElementById("challenge").innerHTML = "<div style='font-size: 20px'> <strong>" + map + "</strong>" + " (" + mapType + ")" + "</div>";
 
   if (document.getElementById("includeSubmodes").value !== "-1") {
-    document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + " - " + subMode.toLowerCase() + "<br><br>";
+    document.getElementById("challenge").innerHTML += difficulty + " - " + subMode.toLowerCase() + "<br><br>";
   } else {
-    document.getElementById("challenge").innerHTML += mapType + " - " + difficulty + "<br><br>";
+    document.getElementById("challenge").innerHTML += difficulty + "<br><br>";
   }
 
   if (document.getElementById("isHeroDesired").value === "1") {
@@ -123,6 +123,9 @@ function randomizeChallenge() {
 
 function generateHero() {
   hero = Math.floor(Math.random() * heroes.length);
+  if (heroes[hero].name === "Striker Jones" && !document.getElementById("incStrikerJones").checked){
+    generateHero();
+  }
 }
 
 function generateDifficulty() {
@@ -244,6 +247,23 @@ function generateSubmodes() {
       } else {
         subMode = difficulties[2].submodes[Math.floor((Math.random() * (difficulties[2].submodes.length - 1)) + 1)].name;
       }
+      if (subMode === "Chimps" && !document.getElementById("incChimpsMode").checked) {
+        generateSubmodes();
+      }
       break;
   }
+}
+
+//TODO: CHIMPS selectable
+
+function openSettings(open) {
+  if (open === true){
+    document.getElementById("genSettings").style.top = "21px";
+  } else {
+    document.getElementById("genSettings").style.top = "-325px";
+  }
+}
+
+function randomTotalTowers(){
+
 }
