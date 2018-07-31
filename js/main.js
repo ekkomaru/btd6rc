@@ -123,6 +123,9 @@ function randomizeChallenge() {
 
 function generateHero() {
   hero = Math.floor(Math.random() * heroes.length);
+  if (heroes[hero].name === "Striker Jones" && document.getElementById("noStrikerJones").checked){
+    generateHero();
+  }
 }
 
 function generateDifficulty() {
@@ -243,6 +246,9 @@ function generateSubmodes() {
         subMode = difficulties[2].submodes[Math.floor(Math.random() * difficulties[2].submodes.length)].name;
       } else {
         subMode = difficulties[2].submodes[Math.floor((Math.random() * (difficulties[2].submodes.length - 1)) + 1)].name;
+      }
+      if (subMode === "Chimps" && document.getElementById("noChimpsMode").checked) {
+        generateSubmodes();
       }
       break;
   }

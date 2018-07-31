@@ -165,9 +165,17 @@ input, select {
   border: 1px solid rgba(160, 160, 255, 0.75);
 }
 
+.labeledCheckbox{
+  vertical-align: middle;
+}
+
 * {
   font-family: 'Roboto', 'sans-serif';
   text-align: center;
+}
+
+.settingsList{
+  text-align: start;
 }
 
 .pageCenter {
