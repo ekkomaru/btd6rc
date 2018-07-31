@@ -123,7 +123,7 @@ function randomizeChallenge() {
 
 function generateHero() {
   hero = Math.floor(Math.random() * heroes.length);
-  if (heroes[hero].name === "Striker Jones" && document.getElementById("noStrikerJones").checked){
+  if (heroes[hero].name === "Striker Jones" && !document.getElementById("incStrikerJones").checked){
     generateHero();
   }
 }
@@ -247,7 +247,7 @@ function generateSubmodes() {
       } else {
         subMode = difficulties[2].submodes[Math.floor((Math.random() * (difficulties[2].submodes.length - 1)) + 1)].name;
       }
-      if (subMode === "Chimps" && document.getElementById("noChimpsMode").checked) {
+      if (subMode === "Chimps" && !document.getElementById("incChimpsMode").checked) {
         generateSubmodes();
       }
       break;
@@ -262,4 +262,8 @@ function openSettings(open) {
   } else {
     document.getElementById("genSettings").style.top = "-325px";
   }
+}
+
+function randomTotalTowers(){
+
 }
