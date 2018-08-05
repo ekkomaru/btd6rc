@@ -3,103 +3,122 @@ var towers = {
     {
       "id": 0,
       "name": "Dart Monkey",
-      "icon": "img/monkeys/dart.png"
+      "icon": "img/monkeys/dart.png",
+      "camo": true
     },
     {
       "id": 1,
       "name": "Boomerang Monkey",
-      "icon": "img/monkeys/rang.png"
+      "icon": "img/monkeys/rang.png",
+      "camo": false
     },
     {
       "id": 2,
       "name": "Bomb Shooter",
-      "icon": "img/monkeys/bomb.png"
+      "icon": "img/monkeys/bomb.png",
+      "camo": false
     },
     {
       "id": 3,
       "name": "Tack Shooter",
-      "icon": "img/monkeys/track.png"
+      "icon": "img/monkeys/track.png",
+      "camo": false
     },
     {
       "id": 4,
       "name": "Ice Monkey",
-      "icon": "img/monkeys/ice.png"
+      "icon": "img/monkeys/ice.png",
+      "camo": false
     },
     {
       "id": 5,
       "name": "Glue Gunner",
-      "icon": "img/monkeys/glue.png"
+      "icon": "img/monkeys/glue.png",
+      "camo": false
     }
   ],
   "military": [
     {
       "id": 0,
       "name": "Sniper Monkey",
-      "icon": "img/monkeys/sniper.png"
+      "icon": "img/monkeys/sniper.png",
+      "camo": true
     },
     {
       "id": 1,
       "name": "Monkey Sub",
-      "icon": "img/monkeys/sub.png"
+      "icon": "img/monkeys/sub.png",
+      "camo": true
     },
     {
       "id": 2,
       "name": "Monkey Buccaneer",
-      "icon": "img/monkeys/pirate.png"
+      "icon": "img/monkeys/pirate.png",
+      "camo": true
     },
     {
       "id": 3,
       "name": "Monkey Ace",
-      "icon": "img/monkeys/ace.png"
+      "icon": "img/monkeys/ace.png",
+      "camo": true
     },
     {
       "id": 4,
       "name": "Heli Pilot",
-      "icon": "img/monkeys/heli.png"
+      "icon": "img/monkeys/heli.png",
+      "camo": true
     }
   ],
   "magic": [
     {
       "id": 0,
       "name": "Wizard Monkey",
-      "icon": "img/monkeys/wizard.png"
+      "icon": "img/monkeys/wizard.png",
+      "camo": true
     },
     {
       "id": 1,
       "name": "Super Monkey",
-      "icon": "img/monkeys/super.png"
+      "icon": "img/monkeys/super.png",
+      "camo": true
     },
     {
       "id": 2,
       "name": "Ninja Monkey",
-      "icon": "img/monkeys/ninja.png"
+      "icon": "img/monkeys/ninja.png",
+      "camo": true
     },
     {
       "id": 3,
       "name": "Alchemist",
-      "icon": "img/monkeys/alchemist.png"
+      "icon": "img/monkeys/alchemist.png",
+      "camo": false
     },
     {
       "id": 4,
       "name": "Druid",
-      "icon": "img/monkeys/druid.png"
+      "icon": "img/monkeys/druid.png",
+      "camo": false
     }
   ],
   "support": [
     {
       "id": 0,
       "name": "Banana Farm",
-      "icon": "img/monkeys/farm.png"
+      "icon": "img/monkeys/farm.png",
+      "camo": false
     },
     {
       "id": 1,
       "name": "Spike Factory",
-      "icon": "img/monkeys/factory.png"
+      "icon": "img/monkeys/factory.png",
+      "camo": true
     },
     {
       "id": 2,
       "name": "Monkey Village",
-      "icon": "img/monkeys/village.png"
+      "icon": "img/monkeys/village.png",
+      "camo": true
     }
   ]
 };
