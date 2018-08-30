@@ -265,5 +265,4 @@ function openSettings(open) {
 }
 
 function randomTotalTowers(){
-
 }

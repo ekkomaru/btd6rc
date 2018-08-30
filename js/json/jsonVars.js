@@ -148,6 +148,10 @@ var heroes = [
     "id": 4,
     "name": "Captain Churchill",
     "icon": "img/heroes/churchill.png"
+  },
+  {
+    "id": 5,
+    "name": "Benjamin"
   }
 ];
 
