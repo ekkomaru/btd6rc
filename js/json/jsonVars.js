@@ -201,6 +201,10 @@ var maps = {
       "id": 8,
       "name": "Logs",
       "icon": "img/maps/logs.png"
+    },
+    {
+      "id": 9,
+      "name": "Frozen Over"
     }
   ],
   "intermediate": [
@@ -233,6 +237,14 @@ var maps = {
       "id": 5,
       "name": "Spice Islands",
       "icon": "img/maps/spice.png"
+    },
+    {
+      "id": 6,
+      "name": "Haunted"
+    },
+    {
+      "id": 7,
+      "name": "Downstream"
     }
   ],
   "advanced": [
@@ -255,6 +267,10 @@ var maps = {
       "id": 3,
       "name": "Underground",
       "icon": "img/maps/underground.png"
+    },
+    {
+      "id": 4,
+      "name": "High Finance"
     }
   ],
   "expert": [
@@ -267,6 +283,10 @@ var maps = {
       "id": 1,
       "name": "#Ouch",
       "icon": "img/maps/ouch.png"
+    },
+    {
+      "id": 2,
+      "name": "Dark Castle"
     }
   ]
 };
