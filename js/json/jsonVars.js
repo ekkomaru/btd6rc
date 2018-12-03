@@ -67,6 +67,11 @@ var towers = {
       "name": "Heli Pilot",
       "icon": "img/monkeys/heli.png",
       "camo": true
+    },
+    {
+      "id": 5,
+      "name": "Mortar Monkey",
+      "camo": true
     }
   ],
   "magic": [
@@ -245,6 +250,10 @@ var maps = {
     {
       "id": 7,
       "name": "Downstream"
+    },
+    {
+      "id": 8,
+      "name": "Moon Landing"
     }
   ],
   "advanced": [
@@ -287,6 +296,10 @@ var maps = {
     {
       "id": 2,
       "name": "Dark Castle"
+    },
+    {
+      "id": 3,
+      "name": "Quad"
     }
   ]
 };
